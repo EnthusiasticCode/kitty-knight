@@ -11,6 +11,12 @@ public class Movement : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update() {
+		if (networkView.isMine) {
+			InputMovement();
+		}
+	}
+
+	private void InputMovement() {
 		Vector3 movement = Vector3.zero;
 		if (Input.GetKey(KeyCode.W)) {
 			movement += Vector3.forward;
@@ -24,10 +30,11 @@ public class Movement : MonoBehaviour {
 		if (Input.GetKey(KeyCode.D)) {
 			movement += Vector3.right;
 		}
-
+		
 		movement.Normalize();
 		movement *= movementSpeed * Time.deltaTime;
-
+		
 		transform.Translate(movement);
+
 	}
 }
