@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Movement : MonoBehaviour {
+public class EnemyMovement : MonoBehaviour {
 	private Transform player;
 
 	// Use this for initialization
@@ -11,6 +11,6 @@ public class Movement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update() {
-	
+
 	}
 }
