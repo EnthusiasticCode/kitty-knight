@@ -4,9 +4,11 @@ using System.Collections;
 public class Movement : MonoBehaviour {
 	public float movementSpeed;
 
+	private CharacterController controller;
+
 	// Use this for initialization
 	void Start() {
-
+		controller = (CharacterController)GetComponent("CharacterController");
 	}
 
 	// Update is called once per frame
@@ -18,23 +20,11 @@ public class Movement : MonoBehaviour {
 
 	private void InputMovement() {
 		Vector3 movement = Vector3.zero;
-		if (Input.GetKey(KeyCode.W)) {
-			movement += Vector3.forward;
-		}
-		if (Input.GetKey(KeyCode.A)) {
-			movement += Vector3.left;
-		}
-		if (Input.GetKey(KeyCode.S)) {
-			movement += Vector3.back;
-		}
-		if (Input.GetKey(KeyCode.D)) {
-			movement += Vector3.right;
-		}
-		
+		movement += Vector3.forward * Input.GetAxis("Vertical");
+		movement += Vector3.right * Input.GetAxis("Horizontal");
 		movement.Normalize();
-		movement *= movementSpeed * Time.deltaTime;
+		movement *= movementSpeed;
 		
-		transform.Translate(movement);
-
+		controller.SimpleMove(movement);
 	}
 }
