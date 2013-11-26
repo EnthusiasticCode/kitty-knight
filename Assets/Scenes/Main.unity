@@ -148,6 +148,7 @@ GameObject:
   - 65: {fileID: 873348488}
   - 23: {fileID: 873348487}
   - 114: {fileID: 873348491}
+  - 54: {fileID: 873348492}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -218,6 +219,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 5
+--- !u!54 &873348492
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 873348486}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &1097855378
 GameObject:
   m_ObjectHideFlags: 0
