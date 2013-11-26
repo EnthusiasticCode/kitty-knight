@@ -9,6 +9,7 @@ public class NetworkManager : MonoBehaviour {
 	private HostData[] hostList;
 
 	public GameObject playerPrefab;
+	public GameObject enemyPrefab;
 	
 	private void RefreshHostList() {
 		MasterServer.RequestHostList(typeName);
@@ -27,6 +28,7 @@ public class NetworkManager : MonoBehaviour {
 
 	void OnServerInitialized() {
 		SpawnPlayer();
+		SpawnEnemy();
 	}
 
 	private void JoinServer(HostData hostData) {
@@ -35,6 +37,7 @@ public class NetworkManager : MonoBehaviour {
 	
 	void OnConnectedToServer() {
 		SpawnPlayer();
+		SpawnEnemy();
 	}
 
 	void OnGUI() {
@@ -61,5 +64,9 @@ public class NetworkManager : MonoBehaviour {
 		GameObject player = (GameObject)Network.Instantiate(playerPrefab, new Vector3(0f, 5f, 0f), Quaternion.identity, 0);
 		PlayerTracker playerTracker = (PlayerTracker)Camera.main.GetComponent(typeof(PlayerTracker));
 		playerTracker.player = player.transform;
+	}
+
+	private void SpawnEnemy() {
+		Network.Instantiate(enemyPrefab, new Vector3(0f, 5f, 5f), Quaternion.identity, 0);
 	}
 }
