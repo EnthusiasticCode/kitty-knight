@@ -59,7 +59,7 @@ public class NetworkManager : MonoBehaviour {
 
 	private void SpawnPlayer() {
 		GameObject player = (GameObject)Network.Instantiate(playerPrefab, new Vector3(0f, 5f, 0f), Quaternion.identity, 0);
-		PlayerTracker playerTracker = (PlayerTracker)Camera.main.GetComponent("PlayerTracker");
+		PlayerTracker playerTracker = (PlayerTracker)Camera.main.GetComponent(typeof(PlayerTracker));
 		playerTracker.player = player.transform;
 	}
 }

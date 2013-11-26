@@ -2,13 +2,14 @@
 using System.Collections;
 
 public class Movement : MonoBehaviour {
-	public float movementSpeed;
+	public float maxVelocity;
+	public float maxVelocityChange;
 
 	private CharacterController controller;
 
 	// Use this for initialization
 	void Start() {
-		controller = (CharacterController)GetComponent("CharacterController");
+
 	}
 
 	// Update is called once per frame
@@ -19,12 +20,16 @@ public class Movement : MonoBehaviour {
 	}
 
 	private void InputMovement() {
-		Vector3 movement = Vector3.zero;
-		movement += Vector3.forward * Input.GetAxis("Vertical");
-		movement += Vector3.right * Input.GetAxis("Horizontal");
-		movement.Normalize();
-		movement *= movementSpeed;
+		// Calculate how fast we should be moving
+		Vector3 targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+		targetVelocity *= maxVelocity;
 		
-		controller.SimpleMove(movement);
+		// Apply a force that attempts to reach our target velocity
+		Vector3 velocity = rigidbody.velocity;
+		Vector3 velocityChange = (targetVelocity - velocity);
+		velocityChange.x = Mathf.Clamp(velocityChange.x, -maxVelocityChange, maxVelocityChange);
+		velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
+		velocityChange.y = 0;
+		rigidbody.AddForce(velocityChange, ForceMode.VelocityChange);
 	}
 }
