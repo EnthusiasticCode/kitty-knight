@@ -12,22 +12,22 @@ public class Movement : MonoBehaviour {
 	// Update is called once per frame
 	void Update() {
 		Vector3 movement = Vector3.zero;
-		if (Input.GetKey (KeyCode.W)) {
+		if (Input.GetKey(KeyCode.W)) {
 			movement += Vector3.forward;
 		}
-		if (Input.GetKey (KeyCode.A)) {
+		if (Input.GetKey(KeyCode.A)) {
 			movement += Vector3.left;
 		}
-		if (Input.GetKey (KeyCode.S)) {
+		if (Input.GetKey(KeyCode.S)) {
 			movement += Vector3.back;
 		}
-		if (Input.GetKey (KeyCode.D)) {
+		if (Input.GetKey(KeyCode.D)) {
 			movement += Vector3.right;
 		}
 
-		movement.Normalize ();
-		movement *= movementSpeed;
+		movement.Normalize();
+		movement *= movementSpeed * Time.deltaTime;
 
-		transform.Translate (movement);
+		transform.Translate(movement);
 	}
 }
