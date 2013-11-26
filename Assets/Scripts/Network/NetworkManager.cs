@@ -7,6 +7,8 @@ public class NetworkManager : MonoBehaviour {
 	private const string gameName = "TestingRoom";
 
 	private HostData[] hostList;
+
+	public GameObject playerPrefab;
 	
 	private void RefreshHostList() {
 		MasterServer.RequestHostList(typeName);
@@ -24,7 +26,7 @@ public class NetworkManager : MonoBehaviour {
 	}
 
 	void OnServerInitialized() {
-		Debug.Log("Server Initializied");
+		SpawnPlayer();
 	}
 
 	private void JoinServer(HostData hostData) {
@@ -32,7 +34,7 @@ public class NetworkManager : MonoBehaviour {
 	}
 	
 	void OnConnectedToServer() {
-		Debug.Log("Server Joined");
+		SpawnPlayer();
 	}
 
 	void OnGUI() {
@@ -53,5 +55,9 @@ public class NetworkManager : MonoBehaviour {
 				}
 			}
 		}
+	}
+
+	private void SpawnPlayer() {
+		Network.Instantiate(playerPrefab, new Vector3(0f, 5f, 0f), Quaternion.identity, 0);
 	}
 }
