@@ -5,8 +5,6 @@ public class PlayerMovement : MonoBehaviour {
 	public float maxVelocity;
 	public float maxVelocityChange;
 
-	private CharacterController controller;
-
 	// Use this for initialization
 	void Start() {
 
