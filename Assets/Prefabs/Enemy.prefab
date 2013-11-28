@@ -78,11 +78,11 @@ CharacterController:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   serializedVersion: 2
-  m_Height: 1
-  m_Radius: .500000119
+  m_Height: 2
+  m_Radius: 1
   m_SlopeLimit: 45
-  m_StepOffset: .300000012
-  m_SkinWidth: .200000003
+  m_StepOffset: .100000001
+  m_SkinWidth: .100000001
   m_MinMoveDistance: 0
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!148 &14800000
