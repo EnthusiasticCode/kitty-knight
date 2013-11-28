@@ -11,9 +11,9 @@ GameObject:
   - 33: {fileID: 3300000}
   - 135: {fileID: 13500000}
   - 23: {fileID: 2300000}
-  - 114: {fileID: 11400000}
   - 148: {fileID: 14800000}
   - 54: {fileID: 5400000}
+  - 114: {fileID: 11400000}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -83,7 +83,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b8ada46dc53f461ba3e21da055a78ec, type: 3}
+  m_Script: {fileID: 11500000, guid: d92202058a77e4eb3b1c52cc8bdbdeb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxVelocity: 10
