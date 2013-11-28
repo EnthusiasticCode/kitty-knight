@@ -13,7 +13,7 @@ GameObject:
   - 148: {fileID: 14800000}
   - 143: {fileID: 14300000}
   - 114: {fileID: 11400000}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
