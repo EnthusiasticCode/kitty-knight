@@ -11,7 +11,7 @@ public class EnemyControllerMovement : MonoBehaviour {
 	// Use this for initialization
 	void Start() {
 		_player = GameObject.FindGameObjectWithTag("Player").transform;
-		_transform = this.transform;
+		_transform = this.GetComponent<Transform>();
 		_controller = this.GetComponent<CharacterController>();
 	}
 	

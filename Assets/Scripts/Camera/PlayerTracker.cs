@@ -7,13 +7,7 @@ public class PlayerTracker : MonoBehaviour {
 	public float verticalDistance;
 	public float horizontalDistance;
 
-	// Use this for initialization
-	void Start() {
-	
-	}
-	
-	// Update is called once per frame
-	void Update() {
+	void LateUpdate() {
 		if (player != null) {
 			transform.position = new Vector3(
 				player.position.x,
