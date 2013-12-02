@@ -12,8 +12,8 @@ GameObject:
   - 23: {fileID: 2300000}
   - 148: {fileID: 14800000}
   - 143: {fileID: 14300000}
-  - 114: {fileID: 11400000}
   - 114: {fileID: 11400002}
+  - 114: {fileID: 11400000}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -71,6 +71,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 737e5a04fd9d1ae4da34ca2023054d8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74dfb2b0ba2f1fb4e9455ab2c3709189, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   useGUI: 0
   localTransform: {fileID: 0}
   localGameObject: {fileID: 0}
@@ -83,18 +94,6 @@ MonoBehaviour:
   gameObject: {fileID: 0}
   stateMachine: {fileID: 0}
   lastStateMachineBehaviour: {fileID: 0}
-  speed: 10
---- !u!114 &11400002
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76f70f633ec93474e952364f4791632b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   speed: 10
 --- !u!143 &14300000
 CharacterController:

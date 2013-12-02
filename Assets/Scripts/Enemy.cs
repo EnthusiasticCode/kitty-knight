@@ -1,18 +1,15 @@
 ﻿using UnityEngine;
 
-public class Enemy : CharacterFSM {
+public class Enemy : MonoBehaviour {
 	Transform _player;
+	CharacterFSM _characterFSM;
 
-	override protected void OnAwake() {
+	void Start() {
 		_player = GameObject.FindGameObjectWithTag("Player").transform;
+		_characterFSM = GetComponent<CharacterFSM>();
 	}
 
-	void Idle_FixedUpdate() {
-		activeState = CharacterState.Moving;
-		Move(_player.position - transform.position);
-	}
-
-	void Moving_FixedUpdate() {
-		Idle_FixedUpdate();
+	void FixedUpdate() {
+		_characterFSM.Move(_player.position - transform.position);
 	}
 }

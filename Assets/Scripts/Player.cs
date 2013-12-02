@@ -1,37 +1,21 @@
 ﻿using UnityEngine;
 
-public class Player : CharacterFSM {
+public class Player : MonoBehaviour {
 	Vector3? _movementInput;
+	CharacterFSM _characterFSM;
 
-	void Idle_FixedUpdate() {
+	void Start() {
+		_characterFSM = GetComponent<CharacterFSM>();
+	}
+
+	void FixedUpdate() {
 		if (_movementInput != null) {
-			Move(_movementInput.GetValueOrDefault());
-			if (_movementInput.Equals(Vector3.zero)) {
-				activeState = CharacterState.Moving;
-			}
+			_characterFSM.Move(_movementInput.GetValueOrDefault());
 			_movementInput = null;
 		}
 	}
 
-	void Idle_Update() {
-		AllStates_Update();
-	}
-
-	void Moving_FixedUpdate() {
-		if (_movementInput != null) {
-			Move(_movementInput.GetValueOrDefault());
-			if (!_movementInput.Equals(Vector3.zero)) {
-				activeState = CharacterState.Idle;
-			}
-			_movementInput = null;
-		}
-	}
-	
-	void Moving_Update() {
-		AllStates_Update();
-	}
-	
-	void AllStates_Update() {
+	void Update() {
 		if (networkView.isMine) {
 			InputMovement();
 		}
